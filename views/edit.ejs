@@ -1,0 +1,8 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+<form action="/products/<%=product.id%>?_method=PUT" method="post">
+    Name: <input type="text" name="name" value="<%=product.name%>">
+    Base Price: <input type="number" name="basePrice" value="<%=product.basePrice%>">
+    image: <input type="text" name="image" value="<%=product.image%>">
+    <button>submit</button>
+</form>

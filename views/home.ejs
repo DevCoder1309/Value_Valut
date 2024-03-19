@@ -1,0 +1,24 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+<h1>Hello</h1>
+
+categories: <a href=""></a>
+
+
+
+<% for(let product of products){ %>
+    <ul>
+        name: <a href="/products/<%=product.id%>"><%=product.name%></a>
+        Price: <%=product.basePrice%>
+        <img src="<%=product.image%>" alt="" height="200px" width="200px">
+    </ul>
+<% } %>
+
+<a href="/products/new">new</a>
+<% if (!currentUser) {%>
+        <a class="nav-link" href="/users/login">Login</a>
+        <a class="nav-link" href="/users/register">Register</a>
+        <a href=""></a>
+<% }else{ %>
+        <a class="nav-link" href="/users/logout">Logout</a>
+<% } %>

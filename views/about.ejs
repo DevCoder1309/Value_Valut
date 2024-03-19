@@ -1,0 +1,24 @@
+<% layout('layouts/boilerplate.ejs') %>
+
+<h1><%=product.name%></h1>
+
+<img src="<%= product.image %>" alt="" height="200px" width="200px" />
+
+<p><%= product.basePrice %></p>
+
+<p>
+  Available at:
+  Abhinav's Market
+</p>
+
+<button><a href="/">Back</a></button>
+
+<button><a href="/placeorder">Place Order</a></button>
+
+<% if (currentUser && product.author.equals(currentUser.id)) {%>
+<a href="/">home</a>
+<a href="/products/<%=product.id%>/edit">edit</a>
+<form action="/products/<%=product.id%>?_method=DELETE" method="post">
+  <button>delete</button>
+</form>
+<% } %>
